@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+#desktop {
+  width: 100vw;
+  height: 100vh;
+  background-color: #008080; /* Example background */
+  position: relative;
+}
+
+#taskbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 5px;
+  text-align: center;
+}
+
+.window {
+  position: absolute;
+  background-color: #c0c0c0;
+  border: 2px outset white;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 300px; /* Example width */
+  z-index: 10; /* Example z-index */
+}
+
+.window-titlebar {
+  background-color: #000080;
+  color: white;
+  padding: 3px;
+  margin-bottom: 5px;
+  cursor: move;
+}
+
+.window-content {
+  background-color: white;
+  color: black;
+  padding: 5px;
+  border: 1px inset black;
+  min-height: 50px;
+}
+
+#email-tabs {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+#email-tabs button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+#email-tabs button.active-tab {
+  background-color: #ddd;
+}
+#chat-log {
+    height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+#chat-input {
+    width: calc(100% - 70px);
+    padding: 5px;
+}
+
+#chat-send {
+    width: 60px;
+    padding: 5px;
+}
