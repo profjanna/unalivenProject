@@ -176,37 +176,35 @@ function getHighestZindex(){
 }
 
 taskbar.addEventListener('click', (event) => {
-  if (event.target.classList.contains('taskbar-icon')) {
-    const app = event.target.dataset.app;
-    if (app === 'terminal') {
-      createWindow('Terminal', '<p>Command Line</p>');
-    } else if (app === 'notepad') {
-      createWindow('Notepad', '<textarea></textarea>');
-    } else if (app === 'email') {
-      const emailWindow = createWindow('Email', createEmailContent());
-      setupEmailListeners(emailWindow);
-    }
-    else if (app === "chatbot"){
+    if (event.target.classList.contains('taskbar-icon')) {
+        const app = event.target.dataset.app;
+        if (app === 'terminal') {
+            createWindow('Terminal', '<p>Command Line</p>');
+        } else if (app === 'notepad') {
+            createWindow('Notepad', '<textarea></textarea>');
+        } else if (app === 'email') {
+            const emailWindow = createWindow('Email', createEmailContent());
+            setupEmailListeners(emailWindow);
+        } else if (app === "chatbot"){
             const chatWindow = createWindow("Chatbot", createChatbotContent());
             setupChatbotListeners(chatWindow);
         }
-  }
+    }
 });
 
 desktopIcons.addEventListener('dblclick', (event) => {
-  if (event.target.classList.contains('desktop-icon')) {
-    const app = event.target.dataset.app;
-    if (app === 'my-document') {
-      createWindow('My Document', '<p>This is my document.</p>');
-    } else if (app === 'email') {
-      const emailWindow = createWindow('Email', createEmailContent());
-      setupEmailListeners(emailWindow);
-    }
-    else if (app === "chatbot"){
+    if (event.target.classList.contains('desktop-icon')) {
+        const app = event.target.dataset.app;
+        if (app === 'my-document') {
+            createWindow('My Document', '<p>This is my document.</p>');
+        } else if (app === 'email') {
+            const emailWindow = createWindow('Email', createEmailContent());
+            setupEmailListeners(emailWindow);
+        } else if (app === "chatbot"){
             const chatWindow = createWindow("Chatbot", createChatbotContent());
             setupChatbotListeners(chatWindow);
         }
-  }
+    }
 });
 
 desktop.addEventListener('contextmenu', (event) => {
