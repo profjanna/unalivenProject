@@ -34,6 +34,10 @@ const sentEmails = [
   // ... (more sent emails)
 ];
 
+window.addEventListener('load', () => {
+    initializeChatbot();
+});
+
 function createEmailContent() {
   return `
     <div id="email-tabs">
@@ -114,16 +118,28 @@ function setupEmailListeners(windowElement) {
 
 
 function createWindow(appName, content) {
-    console.log("Creating window:", appName); // Debugging line
+    console.log("Creating window:", appName);
     const window = document.createElement('div');
     window.classList.add('window');
+
+    // Add positioning (example):
+    const existingWindows = document.querySelectorAll('.window');
+    let top = 50, left = 50;
+    if (existingWindows.length > 0) {
+        const lastWindow = existingWindows[existingWindows.length - 1];
+        top = parseInt(lastWindow.style.top) + 20;
+        left = parseInt(lastWindow.style.left) + 20;
+    }
+    window.style.top = top + 'px';
+    window.style.left = left + 'px';
+
     window.innerHTML = `
         <div class="window-titlebar">${appName}</div>
         <div class="window-content">${content}</div>
     `;
     desktop.appendChild(window);
     makeDraggable(window);
-    console.log("Window created:", window); // Debugging line
+    console.log("Window created:", window);
     return window;
 }
 
@@ -170,6 +186,10 @@ taskbar.addEventListener('click', (event) => {
       const emailWindow = createWindow('Email', createEmailContent());
       setupEmailListeners(emailWindow);
     }
+    else if (app === "chatbot"){
+            const chatWindow = createWindow("Chatbot", createChatbotContent());
+            setupChatbotListeners(chatWindow);
+        }
   }
 });
 
@@ -182,6 +202,10 @@ desktopIcons.addEventListener('dblclick', (event) => {
       const emailWindow = createWindow('Email', createEmailContent());
       setupEmailListeners(emailWindow);
     }
+    else if (app === "chatbot"){
+            const chatWindow = createWindow("Chatbot", createChatbotContent());
+            setupChatbotListeners(chatWindow);
+        }
   }
 });
 
@@ -203,4 +227,52 @@ document.getElementById("context-refresh").addEventListener("click", ()=>{
     contextMenu.style.display = 'none';
 });
 
-//Add draggable code.
+function createChatbotContent() {
+    return `
+        <div id="chat-log"></div>
+        <input type="text" id="chat-input" placeholder="Type your message...">
+        <button id="chat-send">Send</button>
+    `;
+}
+
+let chatbot;
+
+function initializeChatbot() {
+    console.log("Initializing chatbot...");
+    chatbot = new RiveScript();
+    chatbot.loadFile("brain.rive").then(() => {
+        console.log("RiveScript brain loaded successfully.");
+        chatbot.sortReplies();
+    }).catch(error => {
+        console.error("Error loading RiveScript brain:", error);
+    });
+}
+
+function setupChatbotListeners(windowElement) {
+    const chatLog = windowElement.querySelector("#chat-log");
+    const chatInput = windowElement.querySelector("#chat-input");
+    const chatSend = windowElement.querySelector("#chat-send");
+
+    chatSend.addEventListener("click", () => {
+        sendMessage();
+    });
+
+    chatInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            sendMessage();
+        }
+    });
+
+    function sendMessage() {
+        const message = chatInput.value;
+        if (message) {
+            chatLog.innerHTML += `<p>You: ${message}</p>`;
+            chatInput.value = "";
+
+            chatbot.reply("local-user", message).then(reply => {
+                chatLog.innerHTML += `<p>Chatbot: ${reply}</p>`;
+                chatLog.scrollTop = chatLog.scrollHeight; // Scroll to bottom
+            });
+        }
+    }
+}
