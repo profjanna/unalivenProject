@@ -230,7 +230,7 @@ document.getElementById("context-refresh").addEventListener("click", ()=>{
 function createChatbotContent() {
     return `
         <div id="chat-log"></div>
-        <input type="text" id="chat-input" placeholder="Type your message...">
+        <input type="text" id="chat-input" name="chat-input" placeholder="Type your message...">
         <button id="chat-send">Send</button>
     `;
 }
