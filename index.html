@@ -1,19 +1,27 @@
+<!DOCTYPE html>
 <html>
-    <head>
-   <title> poop page </title>
-        <style>
-h1{
-    color: blue;
-    background-color: Tomato;
-    font-family: 'Brush Script MT', cursive;
-    padding-left: 100px;
-}
-            
-        </style>
-    </head>
+<head>
+  <title>Fake OS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
-    <h1> THIS IS MY POOP PAGE </h1>
-    <p> I will keep a record of my daily poops here. Like and subscribe.</p>
+  <div id="desktop">
+    <div id="taskbar">
+      <button class="taskbar-icon" data-app="terminal">Terminal</button>
+      <button class="taskbar-icon" data-app="notepad">Notepad</button>
+      <button class="taskbar-icon" data-app="email">Email</button>
+    </div>
+    <div id="desktop-icons">
+      <div class="desktop-icon" data-app="my-document">My Document</div>
+      <div class="desktop-icon" data-app="recycle-bin">Recycle Bin</div>
+      <div class="desktop-icon" data-app="email">Email</div>
+    </div>
+    <div id="context-menu" style="display: none; position: absolute;">
+        <button id="context-new-file">New File</button>
+        <button id="context-refresh">Refresh</button>
+    </div>
+  </div>
+  <script src="https://unpkg.com/rivescript@2.2.1/dist/rivescript.min.js"></script>
+  <script src="script.js"></script>
 </body>
-
 </html>
