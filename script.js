@@ -2,6 +2,7 @@ const desktop = document.getElementById('desktop');
 const taskbar = document.getElementById('taskbar');
 const desktopIcons = document.getElementById('desktop-icons');
 const contextMenu = document.getElementById('context-menu');
+const openWindows = {};
 const fakeEmails = [
   {
     sender: 'John Doe',
@@ -118,6 +119,11 @@ function setupEmailListeners(windowElement) {
 
 
 function createWindow(appName, content) {
+    if (openWindows[appName]) {
+        console.log(`Window "${appName}" is already open.`);
+        return; // Don't create a new window
+    }
+
     console.log("Creating window:", appName);
     const window = document.createElement('div');
     window.classList.add('window');
@@ -140,6 +146,19 @@ function createWindow(appName, content) {
     desktop.appendChild(window);
     makeDraggable(window);
     console.log("Window created:", window);
+    openWindows[appName] = true; // Mark window as open
+
+    // Add close button functionality
+    const titleBar = window.querySelector(".window-titlebar");
+    const closeButton = document.createElement("button");
+    closeButton.textContent = "X";
+    closeButton.style.cssFloat = "right";
+    closeButton.addEventListener("click", () => {
+        window.remove();
+        openWindows[appName] = false; //Mark window as closed.
+    });
+    titleBar.appendChild(closeButton);
+
     return window;
 }
 
