@@ -78,3 +78,28 @@ body {
     width: 60px;
     padding: 5px;
 }
+.browser-tab-bar {
+    background-color: #ddd;
+    padding: 5px;
+    display: flex;
+}
+
+.browser-tab {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.browser-content {
+    height: 300px; /* Adjust as needed */
+    overflow: hidden;
+}
+
+.browser-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
