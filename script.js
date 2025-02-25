@@ -3,6 +3,12 @@ const taskbar = document.getElementById('taskbar');
 const desktopIcons = document.getElementById('desktop-icons');
 const contextMenu = document.getElementById('context-menu');
 const openWindows = {};
+//THis initializes the Chatbot
+window.addEventListener('load', () => {
+    initializeChatbot();
+});
+
+//Email STUFF 
 const fakeEmails = [
   {
     sender: 'John Doe',
@@ -34,10 +40,6 @@ const sentEmails = [
   },
   // ... (more sent emails)
 ];
-
-window.addEventListener('load', () => {
-    initializeChatbot();
-});
 
 function createEmailContent() {
   return `
@@ -118,6 +120,8 @@ function setupEmailListeners(windowElement) {
 }
 
 
+
+//Window Stuff
 function createWindow(appName, content) {
     if (openWindows[appName]) {
         console.log(`Window "${appName}" is already open.`);
@@ -194,6 +198,10 @@ function getHighestZindex(){
     return highestZ;
 }
 
+
+
+
+//TaskBar STuff
 taskbar.addEventListener('click', (event) => {
     if (event.target.classList.contains('taskbar-icon')) {
         const app = event.target.dataset.app;
@@ -214,6 +222,10 @@ taskbar.addEventListener('click', (event) => {
         }
     }
 });
+
+
+
+//DesktopSTuff
 
 desktopIcons.addEventListener('dblclick', (event) => {
     if (event.target.classList.contains('desktop-icon')) {
@@ -250,6 +262,9 @@ function createBrowserContent(initialUrl, tabUrls) {
     `;
 }
 
+
+
+//Browser STuff
 function setupBrowserListeners(windowElement) {
     const tabs = windowElement.querySelectorAll('.browser-tab');
     const iframe = windowElement.querySelector('.browser-iframe');
@@ -257,27 +272,26 @@ function setupBrowserListeners(windowElement) {
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
             iframe.src = tab.dataset.url;
+
+            // Remove active class from all tabs
+            tabs.forEach(t => t.classList.remove('active-tab'));
+
+            // Add active class to the clicked tab
+            tab.classList.add('active-tab');
         });
     });
-}
-desktop.addEventListener('contextmenu', (event) => {
-    event.preventDefault();
-    contextMenu.style.left = event.pageX + 'px';
-    contextMenu.style.top = event.pageY + 'px';
-    contextMenu.style.display = 'block';
-});
 
-document.addEventListener('click', (event) => {
-    if (!contextMenu.contains(event.target)) {
-        contextMenu.style.display = 'none';
+    //set the first tab to active on window creation.
+    if(tabs.length > 0){
+        tabs[0].classList.add("active-tab");
     }
-});
+}
 
-document.getElementById("context-refresh").addEventListener("click", ()=>{
-    console.log("refresh");
-    contextMenu.style.display = 'none';
-});
 
+
+
+
+//ChatBotContent
 function createChatbotContent() {
     return `
         <div id="chat-log"></div>
