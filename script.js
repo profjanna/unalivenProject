@@ -217,7 +217,7 @@ taskbar.addEventListener('click', (event) => {
             setupChatbotListeners(chatWindow);
         }
           else if (app === "browser"){
-            const browserWindow = createWindow("Browser", createBrowserContent("https://www.example.com", ["https://www.example.com", "https://www.google.com"]));
+            const browserWindow = createWindow("Browser", createBrowserContent("https://www.example.com", ["https://www.example.com", "https://maggie-nye.github.io/unaliven/"]));
             setupBrowserListeners(browserWindow);
         }
     }
