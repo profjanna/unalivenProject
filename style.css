@@ -82,6 +82,8 @@ body {
     background-color: #ddd;
     padding: 5px;
     display: flex;
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    white-space: nowrap; /* Prevent tabs from wrapping */
 }
 
 .browser-tab {
@@ -90,6 +92,15 @@ body {
     border: 1px solid #ccc;
     background-color: #f0f0f0;
     cursor: pointer;
+    min-width: 50px; /* Minimum width for inactive tabs */
+    max-width: 150px; /* Maximum width for active tabs */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Add ellipsis for long text */
+}
+
+.browser-tab.active-tab {
+    background-color: #ddd; /* Example active tab style */
+    min-width: 150px; /* Wider when active */
 }
 
 .browser-content {
@@ -102,4 +113,3 @@ body {
     height: 100%;
     border: none;
 }
-
