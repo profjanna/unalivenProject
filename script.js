@@ -208,6 +208,10 @@ taskbar.addEventListener('click', (event) => {
             const chatWindow = createWindow("Chatbot", createChatbotContent());
             setupChatbotListeners(chatWindow);
         }
+          else if (app === "browser"){
+            const browserWindow = createWindow("Browser", createBrowserContent("https://www.example.com", ["https://www.example.com", "https://www.google.com"]));
+            setupBrowserListeners(browserWindow);
+        }
     }
 });
 
@@ -223,9 +227,39 @@ desktopIcons.addEventListener('dblclick', (event) => {
             const chatWindow = createWindow("Chatbot", createChatbotContent());
             setupChatbotListeners(chatWindow);
         }
+          else if (app === "browser"){
+          const browserWindow = createWindow("Browser", createBrowserContent("https://www.example.com", ["https://www.example.com", "https://www.google.com"]));
+          setupBrowserListeners(browserWindow);
+        }
     }
 });
 
+function createBrowserContent(initialUrl, tabUrls) {
+    let tabsHtml = '';
+    tabUrls.forEach((url, index) => {
+        tabsHtml += `<button class="browser-tab" data-url="${url}" data-tab-index="${index}">${url}</button>`;
+    });
+
+    return `
+        <div class="browser-tab-bar">
+            ${tabsHtml}
+        </div>
+        <div class="browser-content">
+            <iframe src="${initialUrl}" class="browser-iframe"></iframe>
+        </div>
+    `;
+}
+
+function setupBrowserListeners(windowElement) {
+    const tabs = windowElement.querySelectorAll('.browser-tab');
+    const iframe = windowElement.querySelector('.browser-iframe');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            iframe.src = tab.dataset.url;
+        });
+    });
+}
 desktop.addEventListener('contextmenu', (event) => {
     event.preventDefault();
     contextMenu.style.left = event.pageX + 'px';
