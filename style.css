@@ -29,8 +29,9 @@ body {
 }
 
 .desktop-icon {
-  display: inline-flex; /* or display: flex; */
-  align-items: center; /* Vertically aligns items */
+  display: grid;
+  justify-items: center; /* Center items horizontally */
+  text-align: center; /* center the text inside the span */
   gap: 5px; /* Adds space between icon and text */
 }
 
@@ -41,7 +42,7 @@ body {
 }
 
 .desktop-icon-text {
-  /* Add any text styling here */
+  margin-top: 5px; /* Add some space between the image and text */
 }
 
 #taskbar {
