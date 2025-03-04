@@ -21,7 +21,19 @@ body {
 }
 
 .desktop-icon {
-  width:30px;
+  display: inline-flex; /* or display: flex; */
+  align-items: center; /* Vertically aligns items */
+  gap: 5px; /* Adds space between icon and text */
+}
+
+.desktop-icon-image {
+  max-width: 20px; /* Adjust as needed */
+  max-height: 20px; /* Adjust as needed */
+  vertical-align: middle; /* Aligns the image vertically */
+}
+
+.desktop-icon-text {
+  /* Add any text styling here */
 }
 
 #taskbar {
