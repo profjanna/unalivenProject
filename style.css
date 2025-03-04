@@ -35,8 +35,8 @@ body {
 }
 
 .desktop-icon-image {
-  max-width: 20px; /* Adjust as needed */
-  max-height: 20px; /* Adjust as needed */
+  max-width: 50px; /* Adjust as needed */
+  max-height: 50px; /* Adjust as needed */
   vertical-align: middle; /* Aligns the image vertically */
 }
 
