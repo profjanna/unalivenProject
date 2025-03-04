@@ -20,6 +20,10 @@ body {
   
 }
 
+#desktop-icons {
+  width:30px;
+}
+
 #taskbar {
   position: fixed;
   bottom: 0;
