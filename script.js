@@ -232,16 +232,21 @@ desktopIcons.addEventListener('dblclick', (event) => {
 
     if (icon) { // Check if an icon was clicked
         const app = icon.dataset.app; // Get the data-app attribute from the icon element
-
+        console.log("data-app value:", app); // Log the data-app value
+        
         if (app === 'my-document') {
+            console.log("Creating My Document window..."); // Log before creating the window
             createWindow('My Document', '<p>This is my document.</p>');
         } else if (app === 'email') {
+            console.log("Creating My email window..."); // Log before creating the window
             const emailWindow = createWindow('Email', createEmailContent());
             setupEmailListeners(emailWindow);
         } else if (app === "chatbot") {
+            console.log("Creating My chat window..."); // Log before creating the window
             const chatWindow = createWindow("Chatbot", createChatbotContent());
             setupChatbotListeners(chatWindow);
         } else if (app === "browser") {
+            console.log("Creating browser window..."); // Log before creating the window
             const browserWindow = createWindow("Browser", createBrowserContent("https://www.example.com", ["https://www.example.com", "https://www.google.com"]));
             setupBrowserListeners(browserWindow);
         }
