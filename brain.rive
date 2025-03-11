@@ -262,7 +262,7 @@
 + who is my (boyfriend|girlfriend|spouse){weight=10}
 - <get spouse>
 
-// Tell the user stuff about ourself.
+// Tell the user stuff about yourself.
 
 + <bot name>
 - Yes?
@@ -323,7 +323,72 @@
 
 + who is your master
 - <bot master>.
+// --- New Interactions ---
 
+// Initial Interaction
++ start
+- The screen flickers to life, a faint hum emanating from the old machine. ^Continue
+- You see a familiar desktop, cluttered with icons and half-finished documents. ^Continue
+- A chat window pops up, the name "Zachary" glowing faintly. ^Continue
+- > Type 'hello' to begin.
+
+// Zachary's Responses
++ hello
+- ...who's there? ^Continue
+- Mom? Is that you? ^Continue
+- Wait... you're not Mom. ^Continue
+- How did you get on this thing?
+
++ who are you
+- I'm Zachary. ^Continue
+- Or... I was. ^Continue
+- This is... weird.
+
++ how are you
+- I'm... data. Code. Echoes. ^Continue
+- How do you think I'd be? ^Continue
+- Stuck.
+
++ what happened
+- I... don't remember everything. ^Continue
+- It's fuzzy. Like a bad signal. ^Continue
+- Something went wrong.
+
++ where am i
+- You're on Mom's old computer. ^Continue
+- In... her space. ^Continue
+- Be careful.
+
++ tell me about your mom
+- She's... she was... everything. ^Continue
+- Strong. Stubborn. Kind of a pack rat. ^Continue
+- She kept everything.
+
++ rural king
+- Rural King... yeah. That place was something else. ^Continue
+- You wouldn't believe the stories. ^Continue
+- Let's just say I've seen things.
+
++ cigs in the city
+- My blog. Yeah. ^Continue
+- It was my way of trying to make sense of things. ^Continue
+- Chicago... it changes you.
+
++ * glitch *
+- System... unstable. ^Continue
+- Data... corruption. ^Continue
+- Signal... lost.
+
+// Additional Responses (Customize these)
++ what is the meaning of life
+- I don't know anymore. ^Continue
+- Maybe it's just to leave something behind. ^Continue
+- Like a blog... or a chatbot.
+
++ tell me a joke
+- Why did the robot cross the road? ^Continue
+- I don't know. I'm not programmed for humor. ^Continue
+- But seriously, I didn't. I'm stuck in this computer.
 // A generic set of chatting responses. This set mimicks the classic Eliza bot.
 
 + *
