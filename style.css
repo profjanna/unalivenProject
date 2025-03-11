@@ -30,7 +30,7 @@ body {
 
 .desktop-icon {
   display: grid;
-  justify-items: center; /* Center items horizontally */
+  justify-content: end; /* Center items horizontally */
   text-align: center; /* center the text inside the span */
   gap: 5px; /* Adds space between icon and text */
 }
