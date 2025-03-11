@@ -323,14 +323,8 @@
 
 + who is your master
 - <bot master>.
-// --- New Interactions ---
 
-// Initial Interaction
-+ start
-- The screen flickers to life, a faint hum emanating from the old machine. ^Continue
-- You see a familiar desktop, cluttered with icons and half-finished documents. ^Continue
-- A chat window pops up, the name "Zachary" glowing faintly. ^Continue
-- > Type 'hello' to begin.
+// --- New Interactions ---
 
 // Zachary's Responses
 + hello
