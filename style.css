@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Ettore Grotesk';
-  src: url('path/to/EttoreGrotesk.woff2') format('woff2'),
-       url('path/to/EttoreGrotesk.woff') format('woff');
+  src: url('CallingCode-Regular.otf') format('otf'),
+       url('CallingCode-Regular.tff') format('tff');
   /* Add other font formats as needed */
   font-weight: normal; /* Or other weights */
   font-style: normal; /* Or other styles */
@@ -11,7 +11,7 @@ body {
   margin: 0;
   overflow: hidden;
   background-color: #f0f0f0; /* Off-white background */
-  font-family: 'Ettore Grotesk', sans-serif; /* Use your chosen font */
+  font-family: 'CallingCode-Regular', sans-serif; /* Use your chosen font */
 
 }
 
