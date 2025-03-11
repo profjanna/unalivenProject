@@ -54,6 +54,18 @@ body {
   padding: 5px;
   text-align: center;
 }
+.taskbar-icon {
+    background: none; /* Remove default button background */
+    border: none; /* Remove default button border */
+    padding: 5px; /* Adjust padding as needed */
+    cursor: pointer; /* Add cursor pointer */
+}
+
+.taskbar-icon img {
+    width: 24px; /* Adjust icon size as needed */
+    height: 24px; /* Adjust icon size as needed */
+    vertical-align: middle; /* Align icons vertically */
+}
 
 .window {
   position: absolute;
