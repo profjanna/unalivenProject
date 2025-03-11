@@ -62,8 +62,8 @@ body {
 }
 
 .taskbar-icon img {
-    width: 24px; /* Adjust icon size as needed */
-    height: 24px; /* Adjust icon size as needed */
+    width: 45px; /* Adjust icon size as needed */
+    height: 45px; /* Adjust icon size as needed */
     vertical-align: middle; /* Align icons vertically */
 }
 
