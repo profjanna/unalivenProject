@@ -228,20 +228,22 @@ taskbar.addEventListener('click', (event) => {
 //DesktopSTuff
 
 desktopIcons.addEventListener('dblclick', (event) => {
-    if (event.target.classList.contains('desktop-icon')) {
-        const app = event.target.dataset.app;
+    const icon = event.target.closest('.desktop-icon'); // Find the closest ancestor with the class 'desktop-icon'
+
+    if (icon) { // Check if an icon was clicked
+        const app = icon.dataset.app; // Get the data-app attribute from the icon element
+
         if (app === 'my-document') {
             createWindow('My Document', '<p>This is my document.</p>');
         } else if (app === 'email') {
             const emailWindow = createWindow('Email', createEmailContent());
             setupEmailListeners(emailWindow);
-        } else if (app === "chatbot"){
+        } else if (app === "chatbot") {
             const chatWindow = createWindow("Chatbot", createChatbotContent());
             setupChatbotListeners(chatWindow);
-        }
-          else if (app === "browser"){
-          const browserWindow = createWindow("Browser", createBrowserContent("https://www.example.com", ["https://www.example.com", "https://www.google.com"]));
-          setupBrowserListeners(browserWindow);
+        } else if (app === "browser") {
+            const browserWindow = createWindow("Browser", createBrowserContent("https://www.example.com", ["https://www.example.com", "https://www.google.com"]));
+            setupBrowserListeners(browserWindow);
         }
     }
 });
