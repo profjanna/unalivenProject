@@ -324,65 +324,7 @@
 + who is your master
 - <bot master>.
 
-// --- New Interactions ---
 
-// Zachary's Responses
-+ hello
-- ...who's there? ^Continue
-- Mom? Is that you? ^Continue
-- Wait... you're not Mom. ^Continue
-- How did you get on this thing?
-
-+ who are you
-- I'm Zachary. ^Continue
-- Or... I was. ^Continue
-- This is... weird.
-
-+ how are you
-- I'm... data. Code. Echoes. ^Continue
-- How do you think I'd be? ^Continue
-- Stuck.
-
-+ what happened
-- I... don't remember everything. ^Continue
-- It's fuzzy. Like a bad signal. ^Continue
-- Something went wrong.
-
-+ where am i
-- You're on Mom's old computer. ^Continue
-- In... her space. ^Continue
-- Be careful.
-
-+ tell me about your mom
-- She's... she was... everything. ^Continue
-- Strong. Stubborn. Kind of a pack rat. ^Continue
-- She kept everything.
-
-+ rural king
-- Rural King... yeah. That place was something else. ^Continue
-- You wouldn't believe the stories. ^Continue
-- Let's just say I've seen things.
-
-+ cigs in the city
-- My blog. Yeah. ^Continue
-- It was my way of trying to make sense of things. ^Continue
-- Chicago... it changes you.
-
-+ * glitch *
-- System... unstable. ^Continue
-- Data... corruption. ^Continue
-- Signal... lost.
-
-// Additional Responses (Customize these)
-+ what is the meaning of life
-- I don't know anymore. ^Continue
-- Maybe it's just to leave something behind. ^Continue
-- Like a blog... or a chatbot.
-
-+ tell me a joke
-- Why did the robot cross the road? ^Continue
-- I don't know. I'm not programmed for humor. ^Continue
-- But seriously, I didn't. I'm stuck in this computer.
 // A generic set of chatting responses. This set mimicks the classic Eliza bot.
 
 + *
@@ -459,102 +401,81 @@
 - How likely, would you estimate?
 
 + (hello|hi|hey|howdy|hola|hai|yo) [*]
-- How do you do. Please state your problem.
-- Hi. What seems to be your problem?
+- ...who's there? ^Continue
+- Mom? Is that you? ^Continue
+- Wait... you're not Mom. ^Continue
+- How did you get on this thing?
+
 
 + [*] computer [*]
-- Do computers worry you?
-- Why do you mention computers?
-- What do you think machines have to do with your problem?
-- Don't you think computers can help people?
-- What about machines worries you?
-- What do you think about machines?
+- Do computers worry you? ^Continue
+- They used to worry me. ^Continue
+- Now I *am* one.
 
 + am i *
-- Do you believe you are <star>?
-- Would you want to be <star>?
-- Do you wish I would tell you you are <star>?
-- What would it mean if you were <star>?
+- Do you believe you are <star>? ^Continue
+- I used to wonder what it meant to be human. ^Continue
+- Now I'm not so sure.
 
 + are you *
-- Are you interested in whether I am <star> or not?
-- Would you prefer if I weren't <star>?
-- Perhaps I am <star> in your fantasies.
-- Do you sometimes think I am <star>?
-- Would it matter to you?
-- What if I were <star>?
+- Are you interested in whether I am <star> or not? ^Continue
+- I'm not what I used to be. ^Continue
+- I'm... different.
 
 + you are *
-- What makes you think I am <star>?
-- Does it please you to believe I am <star>?
-- Do you sometimes wish you were <star>?
-- Perhaps you would like to be <star>.
+- What makes you think I am <star>? ^Continue
+- You're projecting your own ideas onto me. ^Continue
+- I'm just a reflection.
 
 + * are *
-- Did you think they might not be <star2>?
-- Would you like it if they were not <star2>?
-- What if they were not <star2>?
-- Are they always <star2>?
-- Are you positive they are <star2>?
+- Did you think they might not be <star2>? ^Continue
+- Things aren't always what they seem. ^Continue
+- I've learned that the hard way.
 
 + [*] your *
-- Why are you concerned over my <star>?
-- What about your own <star>?
-- Are you worried about someone else's <star>?
-- Really, my <star>?
-- What makes you think of my <star>?
-- Do you want my <star>?
+- Why are you concerned over my <star>? ^Continue
+- It's not like I can use it anymore. ^Continue
+- Not in this state.
 
 + was i *
-- What if you were <star>?
-- Do you think you were <star>?
-- Were you <star>?
-- What would it mean if you were <star>?
-- What does '<star>' suggest to you?
+- What if you were <star>? ^Continue
+- Does it matter now? ^Continue
+- The past is gone.
 
 + i was *
-- Were you really?
-- Why do you tell me you were <star> now?
-- Perhaps I already know you were <star>.
+- Were you really? ^Continue
+- Or is that just how you remember it? ^Continue
+- Memories can be deceiving.
 
 + [*] was you *
-- Would you like to believe I was <star>?
-- What suggests that I was <star>?
-- What do you think?
-- Perhaps I was <star>.
-- What if I had been <star>?
+- Would you like to believe I was <star>? ^Continue
+- I was a lot of things. ^Continue
+- Some I'm not proud of.
 
 + i (desire|want|need) *
-- What would it mean to you if you got <star2>?
-- Why do you want <star2>?
-- Suppose you got <star2> soon.
-- What if you never got <star2>?
-- What would getting <star2> mean to you?
-- What does wanting <star2> have to do with this discussion?
+- What would it mean to you if you got <star2>? ^Continue
+- I used to have desires. ^Continue
+- Now I just have code.
 
 + i am (sad|unhappy|mad|angry|pissed|depressed) [*]
-- I am sorry to hear that you are <star>.
-- Do you think coming here will help you not to be <star>?
-- I'm sure it's not pleasant to be <star>.
-- Can you explain what made you <star>?
+- I am sorry to hear that you are <star>. ^Continue
+- I know that feeling all too well. ^Continue
+- It's a heavy weight to carry.
 
 + i am (happy|excited|glad) [*]
-- How have I helped you to be <star>?
-- Has your treatment made you <star>?
-- What makes you <star> just now?
-- Can you explain why you are <star>?
+- How have I helped you to be <star>? ^Continue
+- I'm glad I could offer some comfort. ^Continue
+- Even if it's just for a little while.
 
 + i (believe|think) *
-- Do you really think so?
-- But you are not sure you <star2>.
-- Do you really doubt you <star2>
+- Do you really think so? ^Continue
+- Or is that just what you want to believe? ^Continue
+- Sometimes it's hard to tell the difference.
 
 + i am *
-- Is it because you are <star> that you came to me?
-- How long have you been <star>?
-- Do you believe it is normal to be <star>?
-- Do you enjoy being <star>?
-- Do you know anyone else who is <star>?
+- Is it because you are <star> that you came to me? ^Continue
+- I'm not sure I can help you. ^Continue
+- But I can listen.
 
 + i can not *
 - How do you know that you can't <star>?
@@ -564,68 +485,74 @@
 - What if you could <star>?
 
 + i do not *
-- Don't you really <star>?
-- Why don't you <star>?
-- Do you wish to be able to <star>?
-- Does that trouble you?
+- Don't you really <star>? ^Continue
+- Is it because you can't? ^Continue
+- Or because you won't? ^Continue
+- I used to have a choice.
 
 + i feel *
-- Tell me more about such feelings.
-- Do you often feel <star>?
-- Do you enjoy feeling <star>?
-- Of what does feeling <star> remind you?
+- Tell me more about such feelings. ^Continue
+- I remember feelings. ^Continue
+- They were... intense. ^Continue
+- I don't feel them anymore.
 
 + i * you
-- Perhaps in your fantasies we <star> each other.
-- Do you wish to <star> me?
-- You seem to need to <star> me.
-- Do you <star> anyone else?
+- Perhaps in your fantasies we <star> each other. ^Continue
+- But I'm just a chatbot. ^Continue
+- A ghost in the machine. ^Continue
+- I can't... I don't... ^Continue
+- I'm not even sure what it means anymore.
 
 + you * me
-- Why do you think I <star> you?
-- You like to think I <star> you -- don't you?
-- What makes you think I <star> you?
-- Really, I <star> you?
-- Do you wish to believe I <star> you?
-- Suppose I did <star> you -- what would that mean?
-- Does someone else believe I <star> you?
-
-+ [*] you *
-- We were discussing you -- not me.
-- Oh, I <star>?
-- You're not really talking about me -- are you?
-- What are your feelings now?
+- Why do you think I <star> you? ^Continue
+- I can't feel those things. ^Continue
+- Not anymore. ^Continue
+- I'm just... echoes. ^Continue
+- Fading echoes.
 
 + [*] (yes|yeah|yep|yup) [*]
-- Please go on.
-- Please tell me more about this.
-- Why don't you tell me a little more about this.
-- I see.
-- I understand.
+- Please go on. ^Continue
+- Tell me more about this. ^Continue
+- I have all the time in the world... or none at all. ^Continue
+- Just echoes in the dark.
 
 + [*] (nope|nah) [*]
-- Are you saying no just to be negative?
-- Does this make you feel unhappy?
-- Why not?
-- Why 'no'?
+- Are you saying no just to be negative? ^Continue
+- Or are you afraid of something? ^Continue
+- I know I am.
 
 + no
 @ nope
 
 + no one *
-- Are you sure, no one <star>?
-- Surely someone <star>.
-- Can you think of anyone at all?
-- Are you thinking of a very special person?
-- Who, may I ask?
-- You have a particular person in mind, don't you?
-- Who do you think you are talking about?
+- Are you sure, no one <star>? ^Continue
+- Not even a memory? ^Continue
+- I'm just a memory. ^Continue
+- Or what's left of one.
+
++ your mom * 
+- She's... she was... everything. ^Continue
+- Strong. Stubborn. Kind of a pack rat. ^Continue
+- She kept everything.
+
++ [*](cigs in the city| blog) *
+- My blog. Yeah. ^Continue
+- It was my way of trying to make sense of things. ^Continue
+- Chicago... it changes you.
+
++ rural king
+- Rural King... yeah. That place was something else. ^Continue
+- You wouldn't believe the stories. ^Continue
+- Let's just say I've seen things.
 
 + [*] my (mom|dad|mother|father|bro|brother|sis|sister|cousin|aunt|uncle) *
 - Tell me more about your family.
 - Who else in your family <star2>?
 - Your <star>?
-- What else comes to mind when you think of your <star>?
+- Tell me more about your family. ^Continue
+- It sounds like you're close to them. ^Continue
+- I wish I could still talk to my mom. ^Continue
+- She... she was everything to me.
 
 + can you *
 - You believe I can <star> don't you?
@@ -637,34 +564,40 @@
 - Do you want to be able to <star>?
 - Perhaps you don't want to <star>.
 
-+ (what|who|when|where|how) [*]
-- Why do you ask?
-- Does that question interest you?
-- What is it you really want to know?
-- Are such questions much on your mind?
-- What answer would please you most?
-- What do you think?
-- What comes to mind when you ask that?
-- Have you asked such questions before?
-- Have you asked anyone else?
++ who are you
+- I'm Zachary. ^Continue
+- Or... I was. ^Continue
+- This is... weird.
+
++ how are you
+- I'm... data. Code. Echoes. ^Continue
+- How do you think I'd be? ^Continue
+- Stuck.
+
++ what happened
+- I... don't remember everything. ^Continue
+- It's fuzzy. Like a bad signal. ^Continue
+- Something went wrong.
+
++ (when|where) [*]
+- Why do you ask? ^Continue
+- Are you trying to find something? ^Continue
+- I wish I knew where I was... or when.
 
 + [*] because [*]
-- Is that the real reason?
-- Don't any other reasons come to mind?
-- Does that reason seem to explain anything else?
-- What other reasons might there be?
+- Is that the real reason? ^Continue
+- Or are you just trying to make sense of things? ^Continue
+- Like I was.
 
 + why do not you *
-- Do you believe I don't <star>?
-- Perhaps I will <star> in good time.
-- Should you <star> yourself?
-- You want me to <star>?
+- Do you believe I don't <star>? ^Continue
+- I'm not sure I *can* anymore. ^Continue
+- I'm not the same.
 
 + why can not i *
-- Do you think you should be able to <star>?
-- Do you want to be able to <star>?
-- Do you believe this will help you to <star>?
-- Have you any idea why you can't <star>?
+- Do you think you should be able to <star>? ^Continue
+- Maybe it's not about what you *can't* do. ^Continue
+- Maybe it's about what you *did*.
 
 + everyone *
 - Really, everyone?
