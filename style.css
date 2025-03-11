@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Ettore Grotesk';
+  font-family: 'CallingCode-Regular';
   src: url('CallingCode-Regular.otf') format('otf'),
        url('CallingCode-Regular.tff') format('tff');
   /* Add other font formats as needed */
@@ -30,8 +30,10 @@ body {
 #desktop-icons {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjust column width as needed */
+  justify-content: end; /* Center items horizontally */
   grid-gap: 20px; /* Adjust gap between icons */
   padding: 20px; /* Add padding to the container */
+  padding-left: 100px;
 }
 
 .desktop-icon {
