@@ -27,6 +27,12 @@ body {
   background-size: 50%;
   
 }
+#desktop-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjust column width as needed */
+  grid-gap: 20px; /* Adjust gap between icons */
+  padding: 20px; /* Add padding to the container */
+}
 
 .desktop-icon {
   display: grid;
