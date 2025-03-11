@@ -203,8 +203,11 @@ function getHighestZindex(){
 
 //TaskBar STuff
 taskbar.addEventListener('click', (event) => {
-    if (event.target.classList.contains('taskbar-icon')) {
-        const app = event.target.dataset.app;
+    const icon = event.target.closest('.taskbar-icon'); // Find the closest ancestor with the class 'taskbar-icon'
+
+    if (icon) { // Check if an icon was found
+        const app = icon.dataset.app; // Get the data-app attribute from the icon
+
         if (app === 'terminal') {
             createWindow('Terminal', '<p>Command Line</p>');
         } else if (app === 'notepad') {
@@ -212,11 +215,10 @@ taskbar.addEventListener('click', (event) => {
         } else if (app === 'email') {
             const emailWindow = createWindow('Email', createEmailContent());
             setupEmailListeners(emailWindow);
-        } else if (app === "chatbot"){
+        } else if (app === "chatbot") {
             const chatWindow = createWindow("Chatbot", createChatbotContent());
             setupChatbotListeners(chatWindow);
-        }
-          else if (app === "browser"){
+        } else if (app === "browser") {
             const browserWindow = createWindow("Browser", createBrowserContent("https://www.example.com", ["https://www.example.com", "https://maggie-nye.github.io/unaliven/"]));
             setupBrowserListeners(browserWindow);
         }
