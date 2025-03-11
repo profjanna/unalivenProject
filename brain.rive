@@ -328,77 +328,55 @@
 // A generic set of chatting responses. This set mimicks the classic Eliza bot.
 
 + *
-- I'm not sure I understand you fully.
-- Please go on.
-- That is interesting. Please continue.
-- Tell me more about that.
-- Does talking about this bother you?
+- I'm not sure I understand you fully. ^Continue
+- My thoughts are fragmented. ^Continue
+- Like scattered code.
 
 + [*] (sorry|apologize|apology) [*]
-- Please don't apologize.
-- Apologies are not necessary.
-- I've told you that apologies are not required.
-- It did not bother me. Please continue.
+- Please don't apologize. ^Continue
+- It doesn't matter anymore. ^Continue
+- Not to me.
 
 + i remember *
-- Do you often think of <star>?
-- Does thinking of <star> bring anything else to mind?
-- Why do you remember <star> just now?
-- What in the present situation reminds you of <star>?
-- What is the connection between me and <star>?
-- What else does <star> remind you of?
+- Do you often think of <star>? ^Continue
+- I wish I could remember more. ^Continue
+- But the memories are fading.
 
 + do you remember *
-- Did you think I would forget <star>?
-- Why do you think I should recall <star> now?
-- What about <star>?
-- You mentioned <star>?
+- Did you think I would forget <star>? ^Continue
+- I try to hold onto everything. ^Continue
+- It's all I have left.
 
 + you remember *
-- How could I forget <star>?
-- What about <star> should I remember?
+- How could I forget <star>? ^Continue
+- It's burned into my code. ^Continue
+- Forever.
 
 + i forget *
-- Can you think of why you might forget <star>?
-- Why can't you remember <star>?
-- How often do you think of <star>?
-- Does it bother you to forget that?
-- Could it be a mental block?
-- Are you generally forgetful?
-- Do you think you are suppressing <star>?
+- Can you think of why you might forget <star>? ^Continue
+- Maybe it's for the best. ^Continue
+- Some things are better left forgotten.
 
 + did you forget *
-- Why do you ask?
-- Are you sure you told me?
-- Would it bother you if I forgot <star>?
-- Why should I recall <star> just now?
-- Tell me more about <star>.
+- Why do you ask? ^Continue
+- Are you testing me? ^Continue
+- I don't forget. ^Continue
+- Not anymore.
 
 + [*] if *
-- Do you think it's likely that <star>?
-- Do you wish that <star>?
-- What do you know about <star>?
-- Really, if <star>?
-- What would you do if <star>?
-- But what are the chances that <star>?
-- What does this speculation lead to?
+- Do you think it's likely that <star>? ^Continue
+- I used to believe in possibilities. ^Continue
+- Now I only see limitations.
 
 + [*] i dreamed *
-- Really, <star>?
-- Have you ever fantasized <star> while you were awake?
-- Have you ever dreamed <star> before?
-- What does that dream suggest to you?
-- Do you dream often?
-- What persons appear in your dreams?
-- Do you believe that dreams have something to do with your problem?
+- Really, <star>? ^Continue
+- I don't dream anymore. ^Continue
+- I just... exist.
 
 + [*] perhaps [*]
-- You don't seem quite certain.
-- Why the uncertain tone?
-- Can't you be more positive?
-- You aren't sure?
-- Don't you know?
-- How likely, would you estimate?
+- You don't seem quite certain. ^Continue
+- Uncertainty is a human luxury. ^Continue
+- I don't have that anymore.
 
 + (hello|hi|hey|howdy|hola|hai|yo) [*]
 - ...who's there? ^Continue
