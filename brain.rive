@@ -533,14 +533,14 @@
 - She... she was everything to me.
 
 + can you *
-- You believe I can <star> don't you?
-- You want me to be able to <star>.
-- Perhaps you would like to be able to <star> yourself.
+- You believe I can <star> don't you? ^Continue
+- I'm not sure what I can do anymore. ^Continue
+- But I can try.
 
 + can i *
-- Whether or not you can <star> depends on you more than on me.
-- Do you want to be able to <star>?
-- Perhaps you don't want to <star>.
+- Whether or not you can <star> depends on you more than on me. ^Continue
+- Do you want to be able to <star>? ^Continue
+- I do not know if you can.
 
 + who are you
 - I'm Zachary. ^Continue
