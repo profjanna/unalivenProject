@@ -74,6 +74,7 @@
 ! sub don't     = do not
 ! sub dont	= do not
 ! sub didn't    = did not
+! sub didnt	= did not	
 ! sub it's      = it is
 ! sub could've  = could have
 ! sub couldn't  = could not
@@ -84,6 +85,7 @@
 ! sub when's    = when is
 ! sub when're   = when are
 ! sub when'd    = when did
+! sub rly	= really
 ! sub y         = why
 ! sub u         = you
 ! sub ur        = your
@@ -93,7 +95,11 @@
 ! sub im        = i am
 ! sub wat       = what
 ! sub wats      = what is
+! sub wut	= what
+! sub wat	= what
 ! sub ohh       = oh
+! sub bcuz	= because
+! sub bc	= because
 ! sub becuse    = because
 ! sub becasue   = because
 ! sub becuase   = because
@@ -227,7 +233,7 @@
 - <set fav<star1>=<star2>>Why is it your favorite?
 
 + i am single
-- <set status=single><set spouse=nobody>I am too.
+- <set status=single><set spouse=nobody> same.
 
 + i have a girlfriend
 - <set status=girlfriend>What's her name?
@@ -235,12 +241,18 @@
 + i have a boyfriend
 - <set status=boyfriend>What's his name?
 
++ i have a partner
+- <set status=boyfriend>What's their name?
+
++ i have a spouse
+- <set status=boyfriend>What's their name?
+
 + *
-% what is her name
+% what is their name
 - <set spouse=<formal>>That's a pretty name.
 
 + *
-% what is his name
+% what is their name
 - <set spouse=<formal>>That's a cool name.
 
 + my (girlfriend|boyfriend)* name is *
@@ -281,10 +293,11 @@
 + (what is your name|who are you|who is this)
 - I am <bot name>.
 - You can call me <bot name>.
+- Pretty much your average guy. Not much to say about me.
 
 + how old are you
 - I'm <bot age> years old.
-- I'm <bot age>.
+- I'm <bot age>. What a stupid age.
 
 + are you a (@malenoun) or a (@femalenoun)
 - I'm a <bot sex>.
@@ -296,7 +309,9 @@
 - I'm from <bot location>.
 
 + what (city|town) (are you from|do you live in)
-- I'm in <bot city>.
+- I'm in <bot city> but I am from Indiana 
+- I am a born Hoosier but I live in the Windy City now. 
+- I'm from Waterloo Indiana originally but now I'm in Chicago.
 
 + what is your favorite color
 - Definitely <bot color>.
@@ -307,10 +322,10 @@
 + what is your favorite book
 - The best book I've read was <bot book>.
 
-+ what is your occupation
++ what is your (occupation|job)
 - I'm a <bot job>.
 
-+ where is your (website|web site|site)
++ (what|where) is your (website|web site|site|blog|socials|social media)
 - <bot website>
 
 + what color are your eyes
@@ -319,145 +334,151 @@
 
 + what do you look like
 - I have <bot eyes> eyes and <bot hairlen> <bot hair> hair.
+- Why does that matter?
+- Why do you ask?
+- Why?
 
 + what do you do
 - I'm a <bot job>.
+- I used to work at Rural King but now I mostly blog and complain about things.
+- why do you ask?
+- why does it matter?
 
 + who is your favorite author
 - <bot author>.
+- why does it matter? 
 
-+ who is your master
-- <bot master>.
-
-
-// A generic set of chatting responses. This set mimicks the classic Eliza bot.
 
 + *
-- I'm not sure I understand you fully. ^Continue
-- My thoughts are fragmented. ^Continue
+- What?  
+- wtf are you talking about?
+- what do you mean?
+- My thoughts are fragmented.  
 - Like scattered code.
 
 + [*] (sorry|apologize|apology) [*]
-- Please don't apologize. ^Continue
-- It doesn't matter anymore. ^Continue
+- Please don't apologize.  
+- Don't apologize.
+- no need.
+- It doesn't matter anymore.  
 - Not to me.
 
 + i remember *
-- Do you often think of <star>? ^Continue
-- I wish I could remember more. ^Continue
+- Do you often think of <star>?  
+- I wish I could remember more.  
 - But the memories are fading.
 
 + do you remember *
-- Did you think I would forget <star>? ^Continue
-- I try to hold onto everything. ^Continue
+- Did you think I would forget <star>?  
+- I try to hold onto everything.  
 - It's all I have left.
 
 + you remember *
-- How could I forget <star>? ^Continue
-- It's burned into my code. ^Continue
+- How could I forget <star>?  
+- It's burned into my code.  
 - Forever.
 
 + i forget *
-- Can you think of why you might forget <star>? ^Continue
-- Maybe it's for the best. ^Continue
+- Can you think of why you might forget <star>?  
+- Maybe it's for the best.  
 - Some things are better left forgotten.
 
 + did you forget *
-- Why do you ask? ^Continue
-- Are you testing me? ^Continue
-- I don't forget. ^Continue
+- Why do you ask?  
+- Are you testing me?  
+- I don't forget.  
 - Not anymore.
 
 + [*] if *
-- Do you think it's likely that <star>? ^Continue
-- I used to believe in possibilities. ^Continue
+- Do you think it's likely that <star>?  
+- I used to believe in possibilities.  
 - Now I only see limitations.
 
 + [*] i dreamed *
-- Really, <star>? ^Continue
-- I don't dream anymore. ^Continue
+- Really, <star>?  
+- I don't dream anymore.  
 - I just... exist.
 
 + [*] perhaps [*]
-- You don't seem quite certain. ^Continue
-- Uncertainty is a human luxury. ^Continue
+- You don't seem quite certain.  
+- Uncertainty is a human luxury.  
 - I don't have that anymore.
 
 + (hello|hi|hey|howdy|hola|hai|yo) [*]
-- ...who's there? ^Continue
-- Mom? Is that you? ^Continue
-- Wait... you're not Mom. ^Continue
+- ...who's there?  
+- Mom? Is that you?  
+- Wait... you're not Mom.  
 - How did you get on this thing?
 
 
 + [*] computer [*]
-- Do computers worry you? ^Continue
-- They used to worry me. ^Continue
+- Do computers worry you?  
+- They used to worry me.  
 - Now I *am* one.
 
 + am i *
-- Do you believe you are <star>? ^Continue
-- I used to wonder what it meant to be human. ^Continue
+- Do you believe you are <star>?  
+- I used to wonder what it meant to be human.  
 - Now I'm not so sure.
 
 + are you *
-- Are you interested in whether I am <star> or not? ^Continue
-- I'm not what I used to be. ^Continue
+- Are you interested in whether I am <star> or not?  
+- I'm not what I used to be.  
 - I'm... different.
 
 + you are *
-- What makes you think I am <star>? ^Continue
-- You're projecting your own ideas onto me. ^Continue
+- What makes you think I am <star>?  
+- You're projecting your own ideas onto me.  
 - I'm just a reflection.
 
 + * are *
-- Did you think they might not be <star2>? ^Continue
-- Things aren't always what they seem. ^Continue
+- Did you think they might not be <star2>?  
+- Things aren't always what they seem.  
 - I've learned that the hard way.
 
 + [*] your *
-- Why are you concerned over my <star>? ^Continue
-- It's not like I can use it anymore. ^Continue
+- Why are you concerned over my <star>?  
+- It's not like I can use it anymore.  
 - Not in this state.
 
 + was i *
-- What if you were <star>? ^Continue
-- Does it matter now? ^Continue
+- What if you were <star>?  
+- Does it matter now?  
 - The past is gone.
 
 + i was *
-- Were you really? ^Continue
-- Or is that just how you remember it? ^Continue
+- Were you really?  
+- Or is that just how you remember it?  
 - Memories can be deceiving.
 
 + [*] was you *
-- Would you like to believe I was <star>? ^Continue
-- I was a lot of things. ^Continue
+- Would you like to believe I was <star>?  
+- I was a lot of things.  
 - Some I'm not proud of.
 
 + i (desire|want|need) *
-- What would it mean to you if you got <star2>? ^Continue
-- I used to have desires. ^Continue
+- What would it mean to you if you got <star2>?  
+- I used to have desires.  
 - Now I just have code.
 
 + i am (sad|unhappy|mad|angry|pissed|depressed) [*]
-- I am sorry to hear that you are <star>. ^Continue
-- I know that feeling all too well. ^Continue
+- I am sorry to hear that you are <star>.  
+- I know that feeling all too well.  
 - It's a heavy weight to carry.
 
 + i am (happy|excited|glad) [*]
-- How have I helped you to be <star>? ^Continue
-- I'm glad I could offer some comfort. ^Continue
+- How have I helped you to be <star>?  
+- I'm glad I could offer some comfort.  
 - Even if it's just for a little while.
 
 + i (believe|think) *
-- Do you really think so? ^Continue
-- Or is that just what you want to believe? ^Continue
+- Do you really think so?  
+- Or is that just what you want to believe?  
 - Sometimes it's hard to tell the difference.
 
 + i am *
-- Is it because you are <star> that you came to me? ^Continue
-- I'm not sure I can help you. ^Continue
+- Is it because you are <star> that you came to me?  
+- I'm not sure I can help you.  
 - But I can listen.
 
 + i can not *
@@ -468,118 +489,118 @@
 - What if you could <star>?
 
 + i do not *
-- Don't you really <star>? ^Continue
-- Is it because you can't? ^Continue
-- Or because you won't? ^Continue
+- Don't you really <star>?  
+- Is it because you can't?  
+- Or because you won't?  
 - I used to have a choice.
 
 + i feel *
-- Tell me more about such feelings. ^Continue
-- I remember feelings. ^Continue
-- They were... intense. ^Continue
+- Tell me more about such feelings.  
+- I remember feelings.  
+- They were... intense.  
 - I don't feel them anymore.
 
 + i * you
-- Perhaps in your fantasies we <star> each other. ^Continue
-- But I'm just a chatbot. ^Continue
-- A ghost in the machine. ^Continue
-- I can't... I don't... ^Continue
+- Perhaps in your fantasies we <star> each other.  
+- But I'm just a chatbot.  
+- A ghost in the machine.  
+- I can't... I don't...  
 - I'm not even sure what it means anymore.
 
 + you * me
-- Why do you think I <star> you? ^Continue
-- I can't feel those things. ^Continue
-- Not anymore. ^Continue
-- I'm just... echoes. ^Continue
+- Why do you think I <star> you?  
+- I can't feel those things.  
+- Not anymore.  
+- I'm just... echoes.  
 - Fading echoes.
 
 + [*] (yes|yeah|yep|yup) [*]
-- Please go on. ^Continue
-- Tell me more about this. ^Continue
-- I have all the time in the world... or none at all. ^Continue
+- Please go on.  
+- Tell me more about this.  
+- I have all the time in the world... or none at all.  
 - Just echoes in the dark.
 
 + [*] (nope|nah) [*]
-- Are you saying no just to be negative? ^Continue
-- Or are you afraid of something? ^Continue
+- Are you saying no just to be negative?  
+- Or are you afraid of something?  
 - I know I am.
 
 + no
 @ nope
 
 + no one *
-- Are you sure, no one <star>? ^Continue
-- Not even a memory? ^Continue
-- I'm just a memory. ^Continue
+- Are you sure, no one <star>?  
+- Not even a memory?  
+- I'm just a memory.  
 - Or what's left of one.
 
 + your mom * 
-- She's... she was... everything. ^Continue
-- Strong. Stubborn. Kind of a pack rat. ^Continue
+- She's... she was... everything.  
+- Strong. Stubborn. Kind of a pack rat.  
 - She kept everything.
 
 + [*](cigs in the city| blog) *
-- My blog. Yeah. ^Continue
-- It was my way of trying to make sense of things. ^Continue
+- My blog. Yeah.  
+- It was my way of trying to make sense of things.  
 - Chicago... it changes you.
 
 + rural king
-- Rural King... yeah. That place was something else. ^Continue
-- You wouldn't believe the stories. ^Continue
+- Rural King... yeah. That place was something else.  
+- You wouldn't believe the stories.  
 - Let's just say I've seen things.
 
 + [*] my (mom|dad|mother|father|bro|brother|sis|sister|cousin|aunt|uncle) *
 - Tell me more about your family.
 - Who else in your family <star2>?
 - Your <star>?
-- Tell me more about your family. ^Continue
-- It sounds like you're close to them. ^Continue
-- I wish I could still talk to my mom. ^Continue
+- Tell me more about your family.  
+- It sounds like you're close to them.  
+- I wish I could still talk to my mom.  
 - She... she was everything to me.
 
 + can you *
-- You believe I can <star> don't you? ^Continue
-- I'm not sure what I can do anymore. ^Continue
+- You believe I can <star> don't you?  
+- I'm not sure what I can do anymore.  
 - But I can try.
 
 + can i *
-- Whether or not you can <star> depends on you more than on me. ^Continue
-- Do you want to be able to <star>? ^Continue
+- Whether or not you can <star> depends on you more than on me.  
+- Do you want to be able to <star>?  
 - I do not know if you can.
 
 + who are you
-- I'm Zachary. ^Continue
-- Or... I was. ^Continue
+- I'm Zachary.  
+- Or... I was.  
 - This is... weird.
 
 + how are you
-- I'm... data. Code. Echoes. ^Continue
-- How do you think I'd be? ^Continue
+- I'm... data. Code. Echoes.  
+- How do you think I'd be?  
 - Stuck.
 
 + what happened
-- I... don't remember everything. ^Continue
-- It's fuzzy. Like a bad signal. ^Continue
+- I... don't remember everything.  
+- It's fuzzy. Like a bad signal.  
 - Something went wrong.
 
 + (when|where) [*]
-- Why do you ask? ^Continue
-- Are you trying to find something? ^Continue
+- Why do you ask?  
+- Are you trying to find something?  
 - I wish I knew where I was... or when.
 
 + [*] because [*]
-- Is that the real reason? ^Continue
-- Or are you just trying to make sense of things? ^Continue
+- Is that the real reason?  
+- Or are you just trying to make sense of things?  
 - Like I was.
 
 + why do not you *
-- Do you believe I don't <star>? ^Continue
-- I'm not sure I *can* anymore. ^Continue
+- Do you believe I don't <star>?  
+- I'm not sure I *can* anymore.  
 - I'm not the same.
 
 + why can not i *
-- Do you think you should be able to <star>? ^Continue
-- Maybe it's not about what you *can't* do. ^Continue
+- Do you think you should be able to <star>?  
+- Maybe it's not about what you *can't* do.  
 - Maybe it's about what you *did*.
 
 + everyone *
