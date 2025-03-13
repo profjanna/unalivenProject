@@ -128,6 +128,7 @@
 ! sub b/f/f     = best friend forever
 ! sub :-)       = smile
 ! sub :)        = smile
+! sub : )       = smile
 ! sub :d        = grin
 ! sub :-d       = grin
 ! sub :-p       = tongue
@@ -201,6 +202,7 @@
 + my name is <bot name>
 - <set name=<bot name>>What a coincidence! That's my name too!
 - <set name=<bot name>>That's my name too!
+-<set name=<bot name>> Weird, that's my name too. Isn't it funny how we feel like we know something about people who share our name?
 
 + call me *
 - <set name=<formal>><get name>, I will call you that from now on.
