@@ -313,7 +313,7 @@ let chatbot;
 
 function initializeChatbot() {
     console.log("Initializing chatbot...");
-    chatbot = new RiveScript();
+    chatbot = new RiveScript({ utf8: true }); // 
     chatbot.loadFile("brain.rive").then(() => {
         console.log("RiveScript brain loaded successfully.");
         chatbot.sortReplies();
