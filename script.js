@@ -307,10 +307,10 @@ desktopIcons.addEventListener('dblclick', (event) => {
             console.log("Creating browser window..."); // Log before creating the window
             const browserWindow = createWindow("Browser", createBrowserContent("https://www.example.com", ["https://www.example.com", "https://www.google.com"]));
             setupBrowserListeners(browserWindow);
-        } else if (app === "trash") {
-            console.log("Creating browser window..."); // Log before creating the window
-            const browserWindow = createWindow("Browser", createBrowserContent("https://www.example.com", ["https://www.example.com", "https://www.google.com"]));
-            setupBrowserListeners(browserWindow);
+        } else if (app === "trashCan") {
+            console.log("Creating trash window..."); // Log before creating the window
+            const trashWindow = createWindow("Trash", createTrashContent());
+            setupTrashListeners(trashWindow);
         }
     }
 });
