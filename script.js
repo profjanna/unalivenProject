@@ -64,6 +64,7 @@ function setupTrashListeners(windowElement) {
         }
     });
 }
+
 //Email STUFF 
 const fakeEmails = [
   {
@@ -275,7 +276,7 @@ taskbar.addEventListener('click', (event) => {
             const chatWindow = createWindow("Chatbot", createChatbotContent());
             setupChatbotListeners(chatWindow);
         } else if (app === "browser") {
-            const browserWindow = createWindow("Browser", createBrowserContent("https://www.example.com", ["https://www.example.com", "https://maggie-nye.github.io/unaliven/"]));
+            const browserWindow = createWindow("Browser", createBrowserContent("https://maggie-nye.github.io/unaliven/", ["https://maggie-nye.github.io/unaliven/", "https://maggie-nye.github.io/unaliven/"]));
             setupBrowserListeners(browserWindow);
         }
     }
