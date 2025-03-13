@@ -185,3 +185,7 @@ body {
 .pixelated {
   image-rendering: pixelated;
 }
+
+svg {
+    background: red;
+}
