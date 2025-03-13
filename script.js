@@ -313,7 +313,7 @@ if (app === 'my-document') {
             setupChatbotListeners(chatWindow);
         } else if (app === "browser") {
             console.log("Creating browser window..."); // Log before creating the window
-            const browserWindow = createWindow("Browser", createBrowserContent("https://www.example.com", ["https://www.example.com", "https://www.google.com"]));
+            const browserWindow = createWindow("Browser", createBrowserContent("https://maggie-nye.github.io/unaliven/", ["https://www.example.com", "https://www.google.com"]));
             setupBrowserListeners(browserWindow);
         } else if (app === "trashCan") {
             console.log("Creating trash window..."); // Log before creating the window
