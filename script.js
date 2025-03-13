@@ -14,23 +14,27 @@ let trashBin = [
     {
         name: "Confidential Report.txt",
         content: "This report contains sensitive information...",
-        deletionDate: new Date(2023, 10, 15), // Example date
-        // ... other properties ...
+        deletionDate: new Date(2023, 10, 15),
     },
     {
         name: "Personal Diary.doc",
         content: "Entry 1: Today was a strange day...",
-        deletionDate: new Date(2023, 10, 18), // Example date
-        // ... other properties ...
+        deletionDate: new Date(2023, 10, 18),
     },
-    // Add more files as needed
 ];
 
+// Get the trash icon element
+const trashIcon = document.getElementById('trash-icon'); // Replace 'trash-icon' with the actual ID
+
 // Example: When the trash icon is clicked
-trashIcon.addEventListener('dblclick', () => {
-    const trashWindow = createWindow("Trash", createTrashContent());
-    setupTrashListeners(trashWindow);
-});
+if (trashIcon) { // Check if the element exists
+    trashIcon.addEventListener('dblclick', () => {
+        const trashWindow = createWindow("Trash", createTrashContent());
+        setupTrashListeners(trashWindow);
+    });
+} else {
+    console.error("Trash icon element not found.");
+}
 
 //Trash
 function createTrashContent() {
@@ -43,7 +47,6 @@ function createTrashContent() {
 }
 
 //Trash
-
 function setupTrashListeners(windowElement) {
     const trashList = windowElement.querySelector('ul');
 
@@ -54,12 +57,9 @@ function setupTrashListeners(windowElement) {
             const file = trashBin.find(f => f.name === fileName);
 
             if (file) {
-                // Display file content
-                alert(file.content); // Or create a modal/window to display it
-
-                // Example: Permenantly Delete Functionality.
+                alert(file.content);
                 trashBin = trashBin.filter(f => f.name !== fileName);
-                listItem.remove(); //Remove the item from the list.
+                listItem.remove();
             }
         }
     });
