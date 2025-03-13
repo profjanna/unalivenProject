@@ -26,6 +26,12 @@ let trashBin = [
     // Add more files as needed
 ];
 
+// Example: When the trash icon is clicked
+trashIcon.addEventListener('dblclick', () => {
+    const trashWindow = createWindow("Trash", createTrashContent());
+    setupTrashListeners(trashWindow);
+});
+
 //Trash
 function createTrashContent() {
     let trashHtml = '<ul>';
