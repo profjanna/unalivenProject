@@ -66,11 +66,13 @@
 ! sub what've   = what have
 ! sub what'll   = what will
 ! sub can't     = can not
+! sub cant	= can not
 ! sub whos      = who is
 ! sub who's     = who is
 ! sub who'd     = who would
 ! sub who'll    = who will
 ! sub don't     = do not
+! sub dont	= do not
 ! sub didn't    = did not
 ! sub it's      = it is
 ! sub could've  = could have
@@ -85,6 +87,7 @@
 ! sub y         = why
 ! sub u         = you
 ! sub ur        = your
+! sub yrs       = years
 ! sub r         = are
 ! sub n         = and
 ! sub im        = i am
