@@ -293,9 +293,16 @@ desktopIcons.addEventListener('dblclick', (event) => {
         const app = icon.dataset.app; // Get the data-app attribute from the icon element
         console.log("data-app value:", app); // Log the data-app value
         
-        if (app === 'my-document') {
-            console.log("Creating My Document window..."); // Log before creating the window
-            createWindow('My Document', '<p>This is my document.</p>');
+if (app === 'my-document') {
+            fetch('firstChatLog.html') // Fetch the external HTML
+                .then(response => response.text())
+                .then(html => {
+                    createWindow('My Document', html); // Pass the HTML content to createWindow
+                })
+                .catch(error => {
+                    console.error('Error loading document:', error);
+                    createWindow('My Document', '<p>Error loading document.</p>'); // Handle errors
+                });
         } else if (app === 'email') {
             console.log("Creating My email window..."); // Log before creating the window
             const emailWindow = createWindow('Email', createEmailContent());
