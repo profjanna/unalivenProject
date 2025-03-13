@@ -3,11 +3,61 @@ const taskbar = document.getElementById('taskbar');
 const desktopIcons = document.getElementById('desktop-icons');
 const contextMenu = document.getElementById('context-menu');
 const openWindows = {};
+
 //THis initializes the Chatbot
 window.addEventListener('load', () => {
     initializeChatbot();
 });
 
+// Trash STUFF
+let trashBin = [
+    {
+        name: "Confidential Report.txt",
+        content: "This report contains sensitive information...",
+        deletionDate: new Date(2023, 10, 15), // Example date
+        // ... other properties ...
+    },
+    {
+        name: "Personal Diary.doc",
+        content: "Entry 1: Today was a strange day...",
+        deletionDate: new Date(2023, 10, 18), // Example date
+        // ... other properties ...
+    },
+    // Add more files as needed
+];
+
+//Trash
+function createTrashContent() {
+    let trashHtml = '<ul>';
+    trashBin.forEach(file => {
+        trashHtml += `<li data-file-name="${file.name}">${file.name}</li>`;
+    });
+    trashHtml += '</ul>';
+    return trashHtml;
+}
+
+//Trash
+
+function setupTrashListeners(windowElement) {
+    const trashList = windowElement.querySelector('ul');
+
+    trashList.addEventListener('click', (event) => {
+        const listItem = event.target.closest('li');
+        if (listItem) {
+            const fileName = listItem.dataset.fileName;
+            const file = trashBin.find(f => f.name === fileName);
+
+            if (file) {
+                // Display file content
+                alert(file.content); // Or create a modal/window to display it
+
+                // Example: Permenantly Delete Functionality.
+                trashBin = trashBin.filter(f => f.name !== fileName);
+                listItem.remove(); //Remove the item from the list.
+            }
+        }
+    });
+}
 //Email STUFF 
 const fakeEmails = [
   {
