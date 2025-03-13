@@ -337,16 +337,26 @@ function setupChatbotListeners(windowElement) {
         }
     });
 
+    function createMessageElement(text, sender) {
+        const messageElement = document.createElement("p");
+        messageElement.textContent = `${sender}: ${text}`;
+        return messageElement;
+    }
+
     function sendMessage() {
         const message = chatInput.value;
         if (message) {
-            chatLog.innerHTML += `<p>You: ${message}</p>`;
+            chatLog.appendChild(createMessageElement(message, "You"));
             chatInput.value = "";
 
             chatbot.reply("local-user", message).then(reply => {
-                chatLog.innerHTML += `<p>Chatbot: ${reply}</p>`;
-                chatLog.scrollTop = chatLog.scrollHeight; // Scroll to bottom
+                chatLog.appendChild(createMessageElement(reply, "Chatbot"));
+                // Delay scroll to ensure rendering
+                setTimeout(() => {
+                    chatLog.scrollTop = chatLog.scrollHeight;
+                }, 10);
             });
         }
     }
 }
+
