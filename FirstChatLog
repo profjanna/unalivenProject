@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Document</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+      }
+      h1 {
+        color: #336699;
+      }
+    </style>
+</head>
+<body>
+    <h1>My Document</h1>
+    <p>This is the content of my document loaded from an external HTML file.</p>
+    <p>You can add more HTML, CSS, and even JavaScript here.</p>
+</body>
+</html>
