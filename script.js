@@ -237,6 +237,7 @@ function createWindow(appName, content) {
 // resizeable 
 function makeResizable(element) {
     const resizeHandles = element.querySelectorAll('.resize-handle');
+    const desktop = document.getElementById('desktop'); // Get the desktop element
 
     resizeHandles.forEach(handle => {
         handle.addEventListener('mousedown', (e) => {
@@ -254,35 +255,69 @@ function makeResizable(element) {
                 let deltaX = e.clientX - startX;
                 let deltaY = e.clientY - startY;
 
-                if (handleClass.contains('top-left')) {
-                    element.style.width = startWidth - deltaX + 'px';
-                    element.style.height = startHeight - deltaY + 'px';
-                    element.style.left = element.offsetLeft + deltaX + 'px';
-                    element.style.top = element.offsetTop + deltaY + 'px';
+                let newWidth = startWidth;
+                let newHeight = startHeight;
+                let newLeft = element.offsetLeft;
+                let newTop = element.offsetTop;
 
+                if (handleClass.contains('top-left')) {
+                    newWidth = startWidth - deltaX;
+                    newHeight = startHeight - deltaY;
+                    newLeft = element.offsetLeft + deltaX;
+                    newTop = element.offsetTop + deltaY;
                 } else if (handleClass.contains('top-right')) {
-                    element.style.width = startWidth + deltaX + 'px';
-                    element.style.height = startHeight - deltaY + 'px';
-                    element.style.top = element.offsetTop + deltaY + 'px';
-                } else if(handleClass.contains('bottom-left')){
-                    element.style.width = startWidth - deltaX + 'px';
-                    element.style.height = startHeight + deltaY + 'px';
-                    element.style.left = element.offsetLeft + deltaX + 'px';
-                } else if(handleClass.contains('bottom-right')){
-                    element.style.width = startWidth + deltaX + 'px';
-                    element.style.height = startHeight + deltaY + 'px';
-                } else if (handleClass.contains("top")){
-                    element.style.height = startHeight - deltaY + 'px';
-                    element.style.top = element.offsetTop + deltaY + 'px';
-                } else if (handleClass.contains("bottom")){
-                    element.style.height = startHeight + deltaY + 'px';
-                } else if (handleClass.contains("left")){
-                    element.style.width = startWidth - deltaX + 'px';
-                    element.style.left = element.offsetLeft + deltaX + 'px';
-                } else if (handleClass.contains("right")){
-                    element.style.width = startWidth + deltaX + 'px';
+                    newWidth = startWidth + deltaX;
+                    newHeight = startHeight - deltaY;
+                    newTop = element.offsetTop + deltaY;
+                } else if (handleClass.contains('bottom-left')) {
+                    newWidth = startWidth - deltaX;
+                    newHeight = startHeight + deltaY;
+                    newLeft = element.offsetLeft + deltaX;
+                } else if (handleClass.contains('bottom-right')) {
+                    newWidth = startWidth + deltaX;
+                    newHeight = startHeight + deltaY;
+                } else if (handleClass.contains("top")) {
+                    newHeight = startHeight - deltaY;
+                    newTop = element.offsetTop + deltaY;
+                } else if (handleClass.contains("bottom")) {
+                    newHeight = startHeight + deltaY;
+                } else if (handleClass.contains("left")) {
+                    newWidth = startWidth - deltaX;
+                    newLeft = element.offsetLeft + deltaX;
+                } else if (handleClass.contains("right")) {
+                    newWidth = startWidth + deltaX;
                 }
 
+                // Bounds checking:
+                const desktopRect = desktop.getBoundingClientRect();
+                const windowRect = {
+                    left: newLeft,
+                    top: newTop,
+                    width: newWidth,
+                    height: newHeight,
+                    right: newLeft + newWidth,
+                    bottom: newTop + newHeight
+                };
+
+                if (windowRect.left < desktopRect.left) {
+                    newLeft = desktopRect.left;
+                    newWidth = windowRect.width; //prevent width change when left is at the edge.
+                }
+                if (windowRect.top < desktopRect.top) {
+                    newTop = desktopRect.top;
+                    newHeight = windowRect.height; //prevent height change when top is at the edge.
+                }
+                if (windowRect.right > desktopRect.right) {
+                    newWidth = desktopRect.right - newLeft;
+                }
+                if (windowRect.bottom > desktopRect.bottom) {
+                    newHeight = desktopRect.bottom - newTop;
+                }
+
+                element.style.width = newWidth + 'px';
+                element.style.height = newHeight + 'px';
+                element.style.left = newLeft + 'px';
+                element.style.top = newTop + 'px';
             }
 
             document.addEventListener('mousemove', resize);
@@ -291,7 +326,7 @@ function makeResizable(element) {
                 isResizing = false;
                 document.removeEventListener('mousemove', resize);
             });
-            e.preventDefault(); //Prevent text selection while dragging.
+            e.preventDefault();
         });
     });
 }
