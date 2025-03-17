@@ -1,99 +1,100 @@
 @font-face {
-  font-family: 'CallingCode-Regular';
-  src: url('CallingCode-Regular.otf') format('otf'),
-       url('CallingCode-Regular.tff') format('tff');
-  /* Add other font formats as needed */
-  font-weight: normal; /* Or other weights */
-  font-style: normal; /* Or other styles */
+    font-family: 'CallingCode-Regular';
+    src: url('CallingCode-Regular.otf') format('otf'),
+         url('CallingCode-Regular.ttf') format('ttf'); /* Corrected extension */
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
-  margin: 0;
-  overflow: hidden;
-  background-color: #f0f0f0; /* Off-white background */
-  font-family: 'CallingCode-Regular', sans-serif; /* Use your chosen font */
-
+    margin: 0;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    font-family: 'CallingCode-Regular', sans-serif;
 }
 
 #desktop {
-  width: 100vw;
-  height: 100vh;
-  background-color: #dadbf5; /* Example background */
-  position: relative;
-  background-image: url('blue.png');
-  background-repeat: no-repeat;
-  background-attachment: fixed; 
-  background-position: center;
-  background-size: 50%;
-  
+    width: 100vw;
+    height: 100vh;
+    background-color: #dadbf5;
+    position: relative;
+    background-image: url('blue.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 50%;
 }
-#desktop-icons {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjust column width as needed */
-  justify-content: end; /* Center items horizontally */
-  grid-gap: 10px; /* Adjust gap between icons */
-  padding: 20px; /* Add padding to the container */
 
+#desktop-icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    justify-content: center; /* Centered icons */
+    grid-gap: 10px;
+    padding: 20px;
 }
 
 .desktop-icon {
-  display: grid;
-  justify-content: end; /* Center items horizontally */
-  text-align: center; /* center the text inside the span */
-  gap: 5px; /* Adds space between icon and text */
+    display: grid;
+    justify-content: center; /* Centered content */
+    text-align: center;
+    gap: 5px;
 }
 
 .desktop-icon-image {
-  max-width: 45px; /* Adjust as needed */
-  max-height: 45px; /* Adjust as needed */
-  vertical-align: middle; /* Aligns the image vertically */
+    max-width: 45px;
+    max-height: 45px;
+    vertical-align: middle;
 }
 
 .desktop-icon-text {
-  margin-top: 5px; /* Add some space between the image and text */
+    margin-top: 5px;
 }
 
 #taskbar {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #9596cf;
-  color: white;
-  padding: 5px;
-  text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #9596cf;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
 }
+
 .taskbar-icon {
-    background: none; /* Remove default button background */
-    border: none; /* Remove default button border */
-    padding: 5px; /* Adjust padding as needed */
-    cursor: pointer; /* Add cursor pointer */
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
 }
 
 .taskbar-icon img {
-    width: 45px; /* Adjust icon size as needed */
-    height: 45px; /* Adjust icon size as needed */
-    vertical-align: middle; /* Align icons vertically */
+    width: 45px;
+    height: 45px;
+    vertical-align: middle;
 }
 
 .window {
-  position: absolute;
-  background-color: #e0e8f0; /* Light blue window background */
-  border: 1px solid #a0b0c0; /* Thin blue border */
-  padding: 10px;
-  box-sizing: border-box;
-  width: 300px; /* Example width */
-  z-index: 10; /* Example z-index */
+    position: absolute;
+    background-color: #e0e8f0;
+    border: 1px solid #a0b0c0;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 300px;
+    z-index: 10;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add box shadow */
 }
 
 .window-titlebar {
-  position: relative; 
-  background-color: #c0d0e0; /* Light blue title bar */
-  border-bottom: 1px solid #a0b0c0;
-  color: white;
-  padding: 3px;
-  margin-bottom: 5px;
-  cursor: move;
+    position: relative;
+    background-color: #c0d0e0;
+    border-bottom: 1px solid #a0b0c0;
+    color: white;
+    padding: 3px;
+    margin-bottom: 5px;
+    cursor: move;
 }
+
 .window-titlebar::before {
     content: "";
     position: absolute;
@@ -101,35 +102,36 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('noise.png'); /* Replace with your noise texture */
-    opacity: 0.05; /* Adjust opacity for desired noise level */
-    pointer-events: none; /* Prevent the overlay from interfering with clicks */
+    background-image: url('noise.png');
+    opacity: 0.05;
+    pointer-events: none;
 }
 
 .window-content {
-  background-color: white;
-  color: black;
-  padding: 5px;
-  border: 1px inset black;
-  min-height: 50px;
-  padding: 10px;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    border: 1px inset black;
+    min-height: 50px;
+    padding: 10px;
 }
 
 #email-tabs {
-  display: flex;
-  margin-bottom: 10px;
+    display: flex;
+    margin-bottom: 10px;
 }
 
 #email-tabs button {
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  background-color: #f0f0f0;
-  cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    cursor: pointer;
 }
 
 #email-tabs button.active-tab {
-  background-color: #ddd;
+    background-color: #ddd;
 }
+
 #chat-log {
     height: 200px;
     overflow-y: auto;
@@ -147,12 +149,13 @@ body {
     width: 60px;
     padding: 5px;
 }
+
 .browser-tab-bar {
     background-color: #ddd;
     padding: 5px;
     display: flex;
-    overflow-x: auto; /* Allow horizontal scrolling if needed */
-    white-space: nowrap; /* Prevent tabs from wrapping */
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .browser-tab {
@@ -161,20 +164,21 @@ body {
     border: 1px solid #ccc;
     background-color: #f0f0f0;
     cursor: pointer;
-    min-width: 50px; /* Minimum width for inactive tabs */
-    max-width: 150px; /* Maximum width for active tabs */
-    overflow: hidden; /* Hide overflowing text */
-    text-overflow: ellipsis; /* Add ellipsis for long text */
+    min-width: 50px;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .browser-tab.active-tab {
-    background-color: #ddd; /* Example active tab style */
-    min-width: 150px; /* Wider when active */
+    background-color: #ddd;
+    min-width: 150px;
 }
 
 .browser-content {
-    height: 300px; /* Adjust as needed */
+    height: 300px;
     overflow: hidden;
+    margin-top: 5px; /* Add margin */
 }
 
 .browser-iframe {
@@ -182,19 +186,23 @@ body {
     height: 100%;
     border: none;
 }
+
 .pixelated {
-  image-rendering: pixelated;
+    image-rendering: pixelated;
 }
 
+/* Consider removing or making more specific */
 svg {
-    background: red;
+    /* background: red; */
 }
+
+/* Resize handles (unchanged) */
 .resize-handle {
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
-    z-index: 1000; /* Ensure they're on top */
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 .resize-handle.top-left {
