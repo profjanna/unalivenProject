@@ -189,3 +189,62 @@ body {
 svg {
     background: red;
 }
+.resize-handle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
+    z-index: 1000; /* Ensure they're on top */
+}
+
+.resize-handle.top-left {
+    top: 0;
+    left: 0;
+    cursor: nw-resize;
+}
+
+.resize-handle.top-right {
+    top: 0;
+    right: 0;
+    cursor: ne-resize;
+}
+
+.resize-handle.bottom-left {
+    bottom: 0;
+    left: 0;
+    cursor: sw-resize;
+}
+
+.resize-handle.bottom-right {
+    bottom: 0;
+    right: 0;
+    cursor: se-resize;
+}
+
+.resize-handle.top {
+    top: 0;
+    left: 45%;
+    width: 20px;
+    cursor: n-resize;
+}
+
+.resize-handle.bottom {
+    bottom: 0;
+    left: 45%;
+    width: 20px;
+    cursor: s-resize;
+}
+
+.resize-handle.left {
+    top: 45%;
+    left: 0;
+    height: 20px;
+    cursor: w-resize;
+}
+
+.resize-handle.right {
+    top: 45%;
+    right: 0;
+    height: 20px;
+    cursor: e-resize;
+}
