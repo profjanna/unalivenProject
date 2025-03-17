@@ -237,7 +237,7 @@ function createWindow(appName, content) {
 // resizeable 
 function makeResizable(element) {
     const resizeHandles = element.querySelectorAll('.resize-handle');
-    const desktop = document.getElementById('desktop'); // Get the desktop element
+    const desktop = document.getElementById('desktop');
 
     resizeHandles.forEach(handle => {
         handle.addEventListener('mousedown', (e) => {
@@ -301,17 +301,28 @@ function makeResizable(element) {
 
                 if (windowRect.left < desktopRect.left) {
                     newLeft = desktopRect.left;
-                    newWidth = windowRect.width; //prevent width change when left is at the edge.
+                    newWidth = windowRect.width;
                 }
                 if (windowRect.top < desktopRect.top) {
                     newTop = desktopRect.top;
-                    newHeight = windowRect.height; //prevent height change when top is at the edge.
+                    newHeight = windowRect.height;
                 }
                 if (windowRect.right > desktopRect.right) {
                     newWidth = desktopRect.right - newLeft;
                 }
                 if (windowRect.bottom > desktopRect.bottom) {
                     newHeight = desktopRect.bottom - newTop;
+                }
+
+                // Minimum size checking.
+                const minWidth = 150;
+                const minHeight = 100;
+
+                if (newWidth < minWidth) {
+                    newWidth = minWidth;
+                }
+                if (newHeight < minHeight) {
+                    newHeight = minHeight;
                 }
 
                 element.style.width = newWidth + 'px';
@@ -330,7 +341,6 @@ function makeResizable(element) {
         });
     });
 }
-
 
 function makeDraggable(element) {
     const titlebar = element.querySelector('.window-titlebar');
