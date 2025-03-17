@@ -276,7 +276,7 @@ taskbar.addEventListener('click', (event) => {
             const chatWindow = createWindow("Chatbot", createChatbotContent());
             setupChatbotListeners(chatWindow);
         } else if (app === "browser") {
-            const browserWindow = createWindow("Browser", createBrowserContent("https://maggie-nye.github.io/unaliven/", ["https://maggie-nye.github.io/unaliven/", "https://maggie-nye.github.io/unaliven/"]));
+            const browserWindow = createWindow("Browser", createBrowserContent("https://maggie-nye.github.io/unaliven/", ["https://profjanna.github.io/CompanyWebSite/", "https://maggie-nye.github.io/unaliven/"]));
             setupBrowserListeners(browserWindow);
         }
     }
@@ -313,7 +313,7 @@ if (app === 'my-document') {
             setupChatbotListeners(chatWindow);
         } else if (app === "browser") {
             console.log("Creating browser window..."); // Log before creating the window
-            const browserWindow = createWindow("Browser", createBrowserContent("https://maggie-nye.github.io/unaliven/", ["https://www.example.com", "https://www.google.com"]));
+            const browserWindow = createWindow("Browser", createBrowserContent("https://maggie-nye.github.io/unaliven/", ["https://profjanna.github.io/CompanyWebSite/"]));
             setupBrowserListeners(browserWindow);
         } else if (app === "trashCan") {
             console.log("Creating trash window..."); // Log before creating the window
