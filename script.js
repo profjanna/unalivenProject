@@ -203,9 +203,21 @@ function createWindow(appName, content) {
     window.innerHTML = `
         <div class="window-titlebar">${appName}</div>
         <div class="window-content">${content}</div>
+        <div class="resize-handle top-left"></div>
+        <div class="resize-handle top-right"></div>
+        <div class="resize-handle bottom-left"></div>
+        <div class="resize-handle bottom-right"></div>
+        <div class="resize-handle top"></div>
+        <div class="resize-handle bottom"></div>
+        <div class="resize-handle left"></div>
+        <div class="resize-handle right"></div>
     `;
-    desktop.appendChild(window);
+
+    desktop.appendChild(window); // Append the window to the desktop
+
     makeDraggable(window);
+    makeResizable(window); // Make the window resizable
+
     console.log("Window created:", window);
     openWindows[appName] = true; // Mark window as open
 
@@ -216,12 +228,74 @@ function createWindow(appName, content) {
     closeButton.style.cssFloat = "right";
     closeButton.addEventListener("click", () => {
         window.remove();
-        openWindows[appName] = false; //Mark window as closed.
+        openWindows[appName] = false; // Mark window as closed.
     });
     titleBar.appendChild(closeButton);
 
     return window;
 }
+// resizeable 
+function makeResizable(element) {
+    const resizeHandles = element.querySelectorAll('.resize-handle');
+
+    resizeHandles.forEach(handle => {
+        handle.addEventListener('mousedown', (e) => {
+            let isResizing = true;
+            let startX = e.clientX;
+            let startY = e.clientY;
+            let startWidth = element.offsetWidth;
+            let startHeight = element.offsetHeight;
+
+            const handleClass = handle.classList;
+
+            function resize(e) {
+                if (!isResizing) return;
+
+                let deltaX = e.clientX - startX;
+                let deltaY = e.clientY - startY;
+
+                if (handleClass.contains('top-left')) {
+                    element.style.width = startWidth - deltaX + 'px';
+                    element.style.height = startHeight - deltaY + 'px';
+                    element.style.left = element.offsetLeft + deltaX + 'px';
+                    element.style.top = element.offsetTop + deltaY + 'px';
+
+                } else if (handleClass.contains('top-right')) {
+                    element.style.width = startWidth + deltaX + 'px';
+                    element.style.height = startHeight - deltaY + 'px';
+                    element.style.top = element.offsetTop + deltaY + 'px';
+                } else if(handleClass.contains('bottom-left')){
+                    element.style.width = startWidth - deltaX + 'px';
+                    element.style.height = startHeight + deltaY + 'px';
+                    element.style.left = element.offsetLeft + deltaX + 'px';
+                } else if(handleClass.contains('bottom-right')){
+                    element.style.width = startWidth + deltaX + 'px';
+                    element.style.height = startHeight + deltaY + 'px';
+                } else if (handleClass.contains("top")){
+                    element.style.height = startHeight - deltaY + 'px';
+                    element.style.top = element.offsetTop + deltaY + 'px';
+                } else if (handleClass.contains("bottom")){
+                    element.style.height = startHeight + deltaY + 'px';
+                } else if (handleClass.contains("left")){
+                    element.style.width = startWidth - deltaX + 'px';
+                    element.style.left = element.offsetLeft + deltaX + 'px';
+                } else if (handleClass.contains("right")){
+                    element.style.width = startWidth + deltaX + 'px';
+                }
+
+            }
+
+            document.addEventListener('mousemove', resize);
+
+            document.addEventListener('mouseup', () => {
+                isResizing = false;
+                document.removeEventListener('mousemove', resize);
+            });
+            e.preventDefault(); //Prevent text selection while dragging.
+        });
+    });
+}
+
 
 function makeDraggable(element) {
     const titlebar = element.querySelector('.window-titlebar');
