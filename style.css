@@ -83,6 +83,8 @@ body {
     width: 300px;
     z-index: 10;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add box shadow */
+    min-width: 150px; /* Example minimum width */
+    min-height: 100px; /* Example minimum height */
 }
 
 .window-titlebar {
@@ -114,6 +116,7 @@ body {
     border: 1px inset black;
     min-height: 50px;
     padding: 10px;
+    overflow: auto; /* Add this line */
 }
 
 #email-tabs {
