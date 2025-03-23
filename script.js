@@ -68,21 +68,21 @@ function setupTrashListeners(windowElement) {
 // Email STUFF
 const fakeEmails = [
     {
-        sender: 'John Doe',
-        subject: 'Meeting Reminder',
-        htmlFile: 'emails/meeting-reminder.html',
+        sender: 'Ronald L',
+        subject: 'Hey Mal',
+        htmlFile: 'emails/ronaldEmail1.html',
     },
     {
-        sender: 'Jane Smith',
-        subject: 'Project Update',
-        htmlFile: 'emails/project-update.html',
+        sender: 'Janice Hartmann',
+        subject: 'Checking in on you',
+        htmlFile: 'emails/workEmail1.html',
     },
     {
-        sender: 'Support',
-        subject: 'Your Account',
-        htmlFile: 'emails/account-verification.html',
+        sender: 'Unaliven',
+        subject: 'Welcome!',
+        htmlFile: 'emails/unalivenEmail1.html',
     },
-    // Add more fake emails as needed
+
 ];
 
 const sentEmails = [
@@ -96,7 +96,7 @@ const sentEmails = [
         subject: 'Meeting Follow-up',
         htmlFile: 'emails/meeting-followup.html',
     },
-    // ... (more sent emails)
+
 ];
 
 function createEmailContent() {
@@ -189,7 +189,7 @@ function setupEmailListeners(windowElement) {
         // Function to add a new email
         function addNewEmail() {
             const newEmail = {
-                sender: 'System',
+                sender: 'Unaliven System',
                 subject: 'Important Notification',
                 htmlFile: 'emails/notification.html',
             };
