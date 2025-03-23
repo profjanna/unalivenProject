@@ -202,9 +202,9 @@ function setupEmailListeners(windowElement) {
         }
 
         // Simulate adding emails at intervals
-        setTimeout(addNewEmail, 5000); // Add after 5 seconds
-        setTimeout(addNewEmail, 10000); // Add after 10 seconds
-        setTimeout(addNewEmail, 15000); // Add after 15 seconds
+        //setTimeout(addNewEmail, 5000); // Add after 5 seconds
+        //setTimeout(addNewEmail, 10000); // Add after 10 seconds
+        setTimeout(addNewEmail, 30000); // Add after 15 seconds
     }
 
     simulateNewEmails(); // Start the simulation
