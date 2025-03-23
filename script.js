@@ -447,7 +447,7 @@ desktopIcons.addEventListener('dblclick', (event) => {
         console.log("data-app value:", app); // Log the data-app value
         
 if (app === 'my-document') {
-            fetch('firstChatLog.html') // Fetch the external HTML
+            fetch('savedDocs/firstChatLog.html') // Fetch the external HTML
                 .then(response => response.text())
                 .then(html => {
                     createWindow('My Document', html); // Pass the HTML content to createWindow
