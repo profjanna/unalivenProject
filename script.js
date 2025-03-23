@@ -349,8 +349,8 @@ function makeResizable(element) {
                 }
 
                 // Minimum size checking.
-                const minWidth = 150;
-                const minHeight = 100;
+                const minWidth = 250;
+                const minHeight = 200;
 
                 if (newWidth < minWidth) {
                     newWidth = minWidth;
