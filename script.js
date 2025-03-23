@@ -65,57 +65,58 @@ function setupTrashListeners(windowElement) {
     });
 }
 
-//Email STUFF 
+// Email STUFF
 const fakeEmails = [
-  {
-    sender: 'John Doe',
-    subject: 'Meeting Reminder',
-    body: 'Don\'t forget our meeting tomorrow at 10 AM.',
-  },
-  {
-    sender: 'Jane Smith',
-    subject: 'Project Update',
-    body: 'Here\'s the latest update on the project.',
-  },
-  {
-    sender: 'Support',
-    subject: 'Your Account',
-    body: 'Please verify your account information.',
-  },
-  // Add more fake emails as needed
+    {
+        sender: 'John Doe',
+        subject: 'Meeting Reminder',
+        htmlFile: 'emails/meeting-reminder.html',
+    },
+    {
+        sender: 'Jane Smith',
+        subject: 'Project Update',
+        htmlFile: 'emails/project-update.html',
+    },
+    {
+        sender: 'Support',
+        subject: 'Your Account',
+        htmlFile: 'emails/account-verification.html',
+    },
+    // Add more fake emails as needed
 ];
+
 const sentEmails = [
-  {
-    recipient: 'Alice Johnson',
-    subject: 'Re: Project Details',
-    body: 'Here are the updated project details.',
-  },
-  {
-    recipient: 'Bob Williams',
-    subject: 'Meeting Follow-up',
-    body: 'Thanks for the meeting. Here are the action items.',
-  },
-  // ... (more sent emails)
+    {
+        recipient: 'Alice Johnson',
+        subject: 'Re: Project Details',
+        htmlFile: 'emails/project-details.html',
+    },
+    {
+        recipient: 'Bob Williams',
+        subject: 'Meeting Follow-up',
+        htmlFile: 'emails/meeting-followup.html',
+    },
+    // ... (more sent emails)
 ];
 
 function createEmailContent() {
-  return `
-    <div id="email-tabs">
-      <button id="inbox-tab" class="active-tab">Inbox</button>
-      <button id="sent-tab">Sent</button>
-    </div>
-    <div id="email-list">
-      ${createEmailList(fakeEmails, 'inbox')}
-    </div>
-    <div id="email-view"></div>
-  `;
+    return `
+        <div id="email-tabs">
+            <button id="inbox-tab" class="active-tab">Inbox</button>
+            <button id="sent-tab">Sent</button>
+        </div>
+        <div id="email-list">
+            ${createEmailList(fakeEmails, 'inbox')}
+        </div>
+        <div id="email-view"></div>
+    `;
 }
 
 function createEmailList(emails, listType) {
     let emailList = '<ul>';
     emails.forEach((email, index) => {
-        let subject = listType === 'inbox'? email.subject: `To: ${email.recipient}, ${email.subject}`;
-        let sender = listType === 'inbox'? email.sender: "Me";
+        let subject = listType === 'inbox' ? email.subject : `To: ${email.recipient}, ${email.subject}`;
+        let sender = listType === 'inbox' ? email.sender : "Me";
 
         // Corrected line:
         emailList += `<li data-email-index="${index}" data-list-type="${listType}">${subject} - ${sender}</li>`;
@@ -125,55 +126,88 @@ function createEmailList(emails, listType) {
 }
 
 function displayEmail(email) { //Expect the email object
-  const emailView = document.getElementById('email-view');
-  if (emailView) {
-    let sender = email.sender || "Me";
-    let recipient = email.recipient || "Unknown";
+    const emailView = document.getElementById('email-view');
+    if (emailView) {
+        let sender = email.sender || "Me";
+        let recipient = email.recipient || "Unknown";
 
-    emailView.innerHTML = `
-      <h3>${email.subject}</h3>
-      <p>From: ${sender}</p>
-      <p>To: ${recipient}</p>
-      <p>${email.body}</p>
-    `;
+        fetch(email.htmlFile)
+            .then(response => response.text())
+            .then(html => {
+                emailView.innerHTML = `
+                    <h3>${email.subject}</h3>
+                    <p>From: ${sender}</p>
+                    <p>To: ${recipient}</p>
+                    <div class="email-body">${html}</div>
+                `;
 
-    // Adjust window height:
-    const windowContent = emailView.parentElement; // Get the .window-content element
-    const windowElement = windowContent.parentElement; //Get the window element.
-    const titleBarHeight = windowElement.querySelector(".window-titlebar").offsetHeight; //get titlebar height.
-    const padding = 200; //Add some extra height.
-    windowElement.style.height = (emailView.offsetHeight + titleBarHeight + padding) + "px"; //set window height.
-  }
+                // Adjust window height:
+                const windowContent = emailView.parentElement;
+                const windowElement = windowContent.parentElement;
+                const titleBarHeight = windowElement.querySelector(".window-titlebar").offsetHeight;
+                const padding = 200;
+                windowElement.style.height = (emailView.offsetHeight + titleBarHeight + padding) + "px";
+            })
+            .catch(error => {
+                console.error('Error loading email HTML:', error);
+                emailView.innerHTML = `<p>Error loading email content.</p>`;
+            });
+    }
 }
 
 function setupEmailListeners(windowElement) {
-  const inboxTab = windowElement.querySelector('#inbox-tab');
-  const sentTab = windowElement.querySelector('#sent-tab');
-  const emailList = windowElement.querySelector('#email-list');
+    const inboxTab = windowElement.querySelector('#inbox-tab');
+    const sentTab = windowElement.querySelector('#sent-tab');
+    const emailList = windowElement.querySelector('#email-list');
 
-  inboxTab.addEventListener('click', () => {
-    inboxTab.classList.add('active-tab');
-    sentTab.classList.remove('active-tab');
-    emailList.innerHTML = createEmailList(fakeEmails, 'inbox');
-    document.getElementById("email-view").innerHTML = ""; //clear email view
-  });
+    inboxTab.addEventListener('click', () => {
+        inboxTab.classList.add('active-tab');
+        sentTab.classList.remove('active-tab');
+        emailList.innerHTML = createEmailList(fakeEmails, 'inbox');
+        document.getElementById("email-view").innerHTML = ""; //clear email view
+    });
 
-  sentTab.addEventListener('click', () => {
-    sentTab.classList.add('active-tab');
-    inboxTab.classList.remove('active-tab');
-    emailList.innerHTML = createEmailList(sentEmails, 'sent');
-    document.getElementById("email-view").innerHTML = ""; //clear email view
-  });
+    sentTab.addEventListener('click', () => {
+        sentTab.classList.add('active-tab');
+        inboxTab.classList.remove('active-tab');
+        emailList.innerHTML = createEmailList(sentEmails, 'sent');
+        document.getElementById("email-view").innerHTML = ""; //clear email view
+    });
 
-  windowElement.addEventListener('click', (event) => {
-    const listItem = event.target.closest('li');
-    if (listItem) {
-      const emailIndex = parseInt(listItem.dataset.emailIndex); //Parse the index
-      const listType = listItem.dataset.listType;
-      const email = listType === 'inbox' ? fakeEmails[emailIndex] : sentEmails[emailIndex];
-      displayEmail(email); //Pass the email object
+    windowElement.addEventListener('click', (event) => {
+        const listItem = event.target.closest('li');
+        if (listItem) {
+            const emailIndex = parseInt(listItem.dataset.emailIndex); //Parse the index
+            const listType = listItem.dataset.listType;
+            const email = listType === 'inbox' ? fakeEmails[emailIndex] : sentEmails[emailIndex];
+            displayEmail(email); //Pass the email object
+        }
+    });
+
+    // Simulate new emails appearing in the inbox
+    function simulateNewEmails() {
+        // Function to add a new email
+        function addNewEmail() {
+            const newEmail = {
+                sender: 'System',
+                subject: 'Important Notification',
+                htmlFile: 'emails/notification.html',
+            };
+            fakeEmails.push(newEmail);
+            // Refresh the email list display
+            const emailList = document.getElementById('email-list');
+            if (emailList) {
+                emailList.innerHTML = createEmailList(fakeEmails, 'inbox');
+            }
+        }
+
+        // Simulate adding emails at intervals
+        setTimeout(addNewEmail, 5000); // Add after 5 seconds
+        setTimeout(addNewEmail, 10000); // Add after 10 seconds
+        setTimeout(addNewEmail, 15000); // Add after 15 seconds
     }
-  });
+
+    simulateNewEmails(); // Start the simulation
 }
 
 
